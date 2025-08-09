@@ -1,12 +1,12 @@
 "use client";
 
 import useSWR from "swr";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Separator } from "@/components/ui/separator";
-import { base_url } from "@/constants"; // your constants file
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../../components/ui/card";
+import { Badge } from "../../components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
+import { Skeleton } from "../../components/ui/skeleton";
+import { Separator } from "../../components/ui/separator";
+import { base_url } from "../../constants"; // your constants file
 
 // Fetcher for SWR
 const fetcher = (url: string) => fetch(url, { credentials: "include" }).then((res) => res.json());

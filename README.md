@@ -57,7 +57,7 @@ Implemented via `react-router-dom` in `src/App.tsx`:
 Navbar adapts the title by role (Engineer/Manager Dashboard). Role label shows near the user name.
 
 ### Auth Context
-`src/providers/userProvider.tsx` exposes a `UserContext` with:
+`src/providers/UserProvider.tsx` exposes a `UserContext` with:
 - `user: User | null`
 - `isLoading: boolean`
 - `handleNewUser(newUser: User | null)` — set/clear user (used for login/logout)
@@ -65,7 +65,7 @@ Navbar adapts the title by role (Engineer/Manager Dashboard). Role label shows n
 Usage example:
 ```tsx
 import { useContext } from 'react'
-import { UserContext, type UserContextType } from '@/providers/userProvider'
+import { UserContext, type UserContextType } from './src/providers/UserProvider'
 
 const { user, handleNewUser } = useContext(UserContext) as UserContextType
 ```
@@ -81,7 +81,7 @@ All API requests are routed through `src/lib/fetcher.ts`, which:
 Examples:
 ```ts
 import useSWR from 'swr'
-import { fetcher, postFetcher } from '@/lib/fetcher'
+import { fetcher, postFetcher } from './src/lib/fetcher'
 
 // GET
 const { data, error, isLoading } = useSWR('/projects', fetcher)

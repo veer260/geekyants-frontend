@@ -6,37 +6,37 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { format } from "date-fns";
 
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-// import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
+import { Input } from "../../components/ui/input";
+import { Button } from "../../components/ui/button";
+import { Textarea } from "../../components/ui/textarea";
+import { Card, CardHeader, CardTitle, CardContent } from "../../components/ui/card";
+import { Label } from "../../components/ui/label";
+// import { Separator } from "../../components/ui/separator";
+import { Badge } from "../../components/ui/badge";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "../../components/ui/select";
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from "@/components/ui/command";
+} from "../../components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { Calendar } from "@/components/ui/calendar";
+} from "../../components/ui/popover";
+import { Calendar } from "../../components/ui/calendar";
 import { Check, ChevronsUpDown, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import { useNavigate } from "react-router-dom";
-import { fetcher } from "@/lib/fetcher";
+import { fetcher } from "../../lib/fetcher";
 
 const availableSkills = [
   "JavaScript",

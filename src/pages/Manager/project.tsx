@@ -1,10 +1,10 @@
 
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "../../components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { Loader2, ArrowLeft } from "lucide-react";
-import { getFetcher } from "@/lib/fetcher";
+import { getFetcher } from "../../lib/fetcher";
 
 type Engineer = {
   _id: string;

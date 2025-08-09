@@ -1,12 +1,12 @@
 // src/components/ProtectedRoute.tsx
 // import { useUser } from '../context/UserProvider';
 import React from 'react';
-import { UserContext } from '@/providers/userProvider';
+import { UserContext } from '../providers/UserProvider';
 
 import { Navigate } from 'react-router-dom';
 
 interface ProtectedRouteProps {
-  children: JSX.Element;
+  children: React.ReactElement;
   role: 'engineer' | 'manager';
 }
 

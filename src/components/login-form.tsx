@@ -8,21 +8,21 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Button } from '@/components/ui/button';
+import { Button } from './ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+} from './ui/card';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { Alert, AlertDescription } from './ui/alert';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
-import { UserContext } from '@/providers/userProvider';
+import { UserContext } from '../providers/UserProvider';
 import { useNavigate} from 'react-router-dom'
-import { postFetcher } from '@/lib/fetcher'
+import { postFetcher } from '../lib/fetcher'
 
 // Yup validation schema
 const loginSchema = yup.object({
@@ -39,7 +39,7 @@ const loginSchema = yup.object({
 type LoginFormData = yup.InferType<typeof loginSchema>;
 
 export function LoginForm() {
-  const { user, handleNewUser } = React.useContext(UserContext) as any;
+  const { handleNewUser } = React.useContext(UserContext) as any;
   const [showPassword, setShowPassword] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
   const [serverError, setServerError] = React.useState<string | null>(null);
@@ -49,8 +49,6 @@ export function LoginForm() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    setError,
-    clearErrors
   } = useForm({
     resolver: yupResolver(loginSchema),
     mode: 'onBlur', // Validate on blur for better UX

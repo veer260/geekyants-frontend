@@ -1,14 +1,14 @@
-import { UserContext } from "@/providers/userProvider";
+import { UserContext, type UserContextType } from "../providers/UserProvider";
 import React from "react";
 
 function Profile() {
-    const context = React.useContext(UserContext);
+    const context = React.useContext(UserContext) as UserContextType | undefined;
     
     if (!context) {
         return <p>Error: UserContext not found</p>;
     }
     
-    const { user, handleNewUser } = context;
+    const { user } = context;
     
     if(user === undefined) {
         return <p>No user logged in</p>

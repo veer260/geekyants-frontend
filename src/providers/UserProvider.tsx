@@ -42,7 +42,7 @@ type User = {
 };
 
 // Define the context type
-type UserContextType = {
+export type UserContextType = {
   user: User | null;
   isLoading: boolean;
   handleNewUser: (newUser: User | null) => void;

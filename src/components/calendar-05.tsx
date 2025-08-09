@@ -1,7 +1,7 @@
 import * as React from "react"
 import { type DateRange } from "react-day-picker"
 
-import { Calendar } from "@/components/ui/calendar"
+import { Calendar } from "./ui/calendar"
 
 export default function Calendar05() {
   const [dateRange, setDateRange] = React.useState<DateRange | undefined>({

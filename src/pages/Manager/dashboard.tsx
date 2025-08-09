@@ -1,8 +1,8 @@
 // import React from 'react';
 import useSWR from 'swr';
-import { fetcher } from '@/lib/fetcher';
+import { fetcher } from '../../lib/fetcher';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button'; // ✅ ShadCN button
+import { Button } from '../../components/ui/button'; // ✅ ShadCN button
 
 interface Project {
   _id: string;

@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Login from "./pages/Login";
-import UserProvider, { UserContext } from "./providers/userProvider";
+import UserProvider, { UserContext } from "./providers/UserProvider";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Dashboard from "./pages/Manager/dashboard";
 import ProjectTeamCapacity from "./pages/Manager/project";
 // import EngineerDashboard from "./pages/Engineer/engineerAssignments";
 // import EngineerProfile from "./pages/Engineer/profile";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "./components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
 import { base_url } from "./constants";
 import { postFetcher } from "./lib/fetcher";
 import EngineerAssignments from "./pages/Engineer/engineerAssignments";

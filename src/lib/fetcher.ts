@@ -4,7 +4,7 @@ interface FetcherOptions {
   headers?: Record<string, string>;
 }
 
-import { base_url } from '@/constants';
+import { base_url } from '../constants';
 
 export const fetcher = async (url: string, options: FetcherOptions = {}) => {
   const { method = 'GET', body, headers = {} } = options;

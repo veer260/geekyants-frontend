@@ -1,10 +1,9 @@
 // src/pages/Engineer/Assignments.tsx
-import React from "react";
 import useSWR from "swr";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader, CardTitle, CardContent } from "../../components/ui/card";
+import { Badge } from "../../components/ui/badge";
 import { Loader2 } from "lucide-react";
-import { getFetcher } from "@/lib/fetcher";
+import { getFetcher } from "../../lib/fetcher";
 
 type Assignment = {
   _id: string;
