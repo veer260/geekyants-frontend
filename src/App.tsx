@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Login from "./pages/Login";
-import UserProvider, { UserContext, type UserContextType } from "./providers/userProvider";
+import UserProvider, { UserContext } from "./providers/userProvider";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Dashboard from "./pages/Manager/dashboard";
 import ProjectTeamCapacity from "./pages/Manager/project";
@@ -19,7 +19,7 @@ import CreateProjectPage from "./pages/Manager/createProject";
 // Types provided by provider
 // ---- Navbar ----
 function Navbar() {
-  const { user, handleNewUser } = React.useContext(UserContext) as UserContextType;
+  const { user, handleNewUser } = React.useContext(UserContext) as any;
   const navigate = useNavigate();
 
   const handleLogout = async (): Promise<void> => {

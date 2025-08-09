@@ -31,7 +31,7 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
 
 // Define the user type
-export type User = {
+type User = {
   id: string;
   email: string;
   role: 'manager' | 'engineer';
@@ -42,7 +42,7 @@ export type User = {
 };
 
 // Define the context type
-export type UserContextType = {
+type UserContextType = {
   user: User | null;
   isLoading: boolean;
   handleNewUser: (newUser: User | null) => void;

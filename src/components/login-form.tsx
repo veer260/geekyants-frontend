@@ -21,7 +21,8 @@ import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
 import { UserContext } from '@/providers/userProvider';
-import { useNavigate} from 'react-router-dom' 
+import { useNavigate} from 'react-router-dom'
+import { postFetcher } from '@/lib/fetcher'
 
 // Yup validation schema
 const loginSchema = yup.object({
@@ -38,10 +39,10 @@ const loginSchema = yup.object({
 type LoginFormData = yup.InferType<typeof loginSchema>;
 
 export function LoginForm() {
-  const {user, handleNewUser} = React.useContext(UserContext);
+  const { user, handleNewUser } = React.useContext(UserContext) as any;
   const [showPassword, setShowPassword] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [serverError, setServerError] = React.useState(null);
+  const [serverError, setServerError] = React.useState<string | null>(null);
   const navigate = useNavigate();
 
   const {
@@ -58,33 +59,27 @@ export function LoginForm() {
   const onSubmit = async (data: LoginFormData) => {
     try {
       setIsLoading(true);
-    const res = await fetch('http://localhost:3000/api/auth/login', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(data),
-  credentials: 'include' // for cookies
-})
-if(!res.ok){
-  throw new Error("new error in logging");
-}
-const result = await res.json();
-const user = result.user;
-if(user.role == 'manager'){
-  navigate('/manager');
-}else if(user.role === 'engineer'){
-  navigate('/engineer/dashboard');
-}
-console.log(result);
-handleNewUser(result.user);
+      const result: any = await postFetcher('/auth/login', data);
+      const payloadUser = result?.data?.user ?? result?.user;
 
-// console.log({data});
-     
+      if (!payloadUser) {
+        throw new Error('Login response missing user');
+      }
 
-      // Success
-      
-    } catch (error) {
+      handleNewUser(payloadUser);
+
+      const role = payloadUser?.role;
+      if (role === 'manager') {
+        navigate('/manager');
+      } else if (role === 'engineer') {
+        navigate('/engineer/dashboard');
+      } else {
+        navigate('/');
+      }
+
+    } catch (error: any) {
+      const message = error?.info?.message || error?.message || 'Login failed';
+      setServerError(message);
     } finally {
       setIsLoading(false);
     }
