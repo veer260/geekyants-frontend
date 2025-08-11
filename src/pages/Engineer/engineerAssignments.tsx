@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "../../components/ui/ca
 import { Badge } from "../../components/ui/badge";
 import { Loader2 } from "lucide-react";
 import { getFetcher } from "../../lib/fetcher";
+import { base_url } from "@/constants";
 
 type Assignment = {
   _id: string;
@@ -38,7 +39,7 @@ type ApiResponse = {
 
 export default function EngineerAssignments() {
   const { data, error, isLoading } = useSWR<ApiResponse>(
-    "http://localhost:3000/api/assignments",
+    `${base_url}/assignments`,
     getFetcher
   );
 
