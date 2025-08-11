@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "../../components/ui/ca
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { Loader2, ArrowLeft } from "lucide-react";
 import { getFetcher } from "../../lib/fetcher";
+import { base_url } from "@/constants";
 
 type Engineer = {
   _id: string;
@@ -46,7 +47,7 @@ export default function ProjectTeamCapacity() {
   const { projectId } = useParams<{ projectId: string }>();
 
   const { data, error, isLoading } = useSWR<ApiResponse>(
-    projectId ? `http://localhost:3000/api/projects/${projectId}/team` : null,
+    projectId ? `${base_url}/projects/${projectId}/team`  : null,
     getFetcher
   );
 
