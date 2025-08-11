@@ -131,4 +131,40 @@ The centralized fetcher uses `credentials: 'include'`, so ensure your backend se
 - Radix + shadcn-style UI
 
 ---
-Maintained by the frontend team. PRs welcome.
+
+
+AI in My Development Workflow
+Which AI tools I used and how
+ChatGPT (GPT-5) – for generating boilerplate code, exploring different approaches to UI design, and quickly prototyping React/TypeScript components using react-hook-form, yup, and shadcn/ui.
+
+GitHub Copilot – for inline code completions, repetitive function scaffolding, and faster refactoring during iterative changes.
+
+Cursor IDE’s AI integration – for context-aware refactoring and searching through the codebase without leaving the editor.
+
+vercel's v0 – for creating UI mockups to visualize components before building them.
+
+Specific examples of how AI accelerated my development
+Form Creation – In the “Create Project” page, AI generated a full form with validation (React Hook Form + Yup) in minutes, including multiple fields and a custom multi-select UI for skills.
+
+ShadCN Integration – Instead of manually reading docs for each component, AI provided pre-wired imports and Tailwind classes for consistent styling.
+
+
+Challenges I faced with AI-generated code and how I resolved them
+Over-generalized code – AI sometimes provided generic examples that didn’t fully match my existing architecture. I resolved this by pasting relevant parts of my code so AI could tailor its suggestions.
+
+Missing type safety – Early AI outputs had loose typing (any), which I replaced with proper TypeScript interfaces and yup inference.
+
+Library version mismatches – AI occasionally used outdated shadcn or react-hook-form syntax. I cross-checked with documentation and updated the code accordingly.
+
+Unoptimized re-renders – Some AI solutions caused unnecessary re-renders. I fixed this by memoizing computed values and using React.useCallback where needed.
+
+My approach to validating and understanding AI suggestions
+Read and reason – I never paste AI code blindly. I first read through it, ensuring I understand every line and why it’s there.
+
+Check documentation – I verify APIs against the official docs for libraries like React, Tailwind, shadcn, and react-hook-form.
+
+Small tests – I integrate AI code in small parts and run local tests to confirm it works as expected before scaling it up.
+
+Refactor for clarity – Even if AI output works, I rewrite sections for readability and maintainability.
+
+Version control – I commit frequently so I can revert easily if AI suggestions cause regressions.
